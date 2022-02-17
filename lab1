@@ -1,0 +1,30 @@
+using System;
+using System.Linq;
+
+namespace LAB1
+{
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] nums2 = new int[4] { 10, 2, 3, 3 };
+            Console.WriteLine(HW1.QueueTime(nums2, 2));
+        }
+    }
+
+    public class HW1
+    {
+        public static long QueueTime(int[] ochered, int a)
+        {
+            var check = new int[a];
+
+            foreach (var element in ochered)
+            {
+                check[Array.IndexOf(check, check.Min())] += element;
+            }
+
+            return check.Max();
+        }
+    }
+}
